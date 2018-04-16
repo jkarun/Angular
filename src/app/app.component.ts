@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  fname = '';
+  lname = '';
+  email = '';
+  pwd = '';
+  cpwd = '';
+
+  onRegister() {
+    alert(this.fname + this.lname + this.email);
+  }
+  onSubmit(f: NgForm) {
+    console.log(f.form.value);  // { first: '', last: '' }
+    // console.log(f.valid);  // false
+  }
 }
