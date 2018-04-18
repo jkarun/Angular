@@ -1,5 +1,5 @@
-<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-  <div class="centerPage">
+<div class="centerPage">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
     <table border='0' cellpadding='1' cellspacing='0' align='center'>
       <tr>
         <td>
@@ -48,5 +48,26 @@
         </td>
       </tr>
     </table>
+  </form>
+
+  <div>
+    <table>
+      <th>
+        <tr>
+          <td>ID</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email ID</td>
+        </tr>
+      </th>
+      <tr *ngFor="let i of jsonStr">
+        <td>i.id</td>
+        <td>i.fname</td>
+        <td>i.lname</td>
+        <td>i.email</td>
+      </tr>
+    </table>
   </div>
-</form>
+
+
+</div>

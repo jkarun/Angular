@@ -14,6 +14,12 @@ export class AppComponent {
   pwd = '';
   cpwd = '';
 
+  jsonStr = [
+    { 'id': 1, 'fname': 'arun', 'lname': 'prasath', 'email': 'test@email.com', 'pwd': 'test' },
+    { 'id': 2, 'fname': 'nura', 'lname': 'jk', 'email': 'test@email.com', 'pwd': 'test' }
+  ];
+
+  // jsonData = JSON.parse( this.jsonStr );
   onRegister() {
     alert(this.fname + this.lname + this.email);
   }
