@@ -1,73 +1,77 @@
-<div class="centerPage">
-  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-    <table border='0' cellpadding='1' cellspacing='0' align='center'>
-      <tr>
-        <td>
-          <label for="fname">First Name</label>
-        </td>
-        <td>
-          <input type="text" name="fname" id="fname" [(ngModel)]="fname">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="lname">Last Name</label>
-        </td>
-        <td>
-          <input type="text" name="lname" id="lname" [(ngModel)]="lname">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="email">Email ID</label>
-        </td>
-        <td>
-          <input type="text" name="email" id="email" [(ngModel)]="email">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="pwd">Enter Password</label>
-        </td>
-        <td>
-          <input type="password" name="pwd" id="pwd" [(ngModel)]="pwd">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="cpwd">Confirm password</label>
-        </td>
-        <td>
-          <input type="password" name="cpwd" id="cpwd" [(ngModel)]="cpwd">
-        </td>
-      </tr>
-      <tr>
-        <td align="rigth" colspan="2">
-          <!-- <input style="float: right;" type="button" value="submit" (click)="onRegister()"> -->
-          <button style="float: right;" type="submit">Submit</button>
-        </td>
-      </tr>
-    </table>
-  </form>
+<div style="float: right;" >
 
-  <div>
-    <table>
-      <th>
-        <tr>
-          <td>ID</td>
-          <td>First Name</td>
-          <td>Last Name</td>
-          <td>Email ID</td>
-        </tr>
-      </th>
-      <tr *ngFor="let i of jsonStr">
-        <td>i.id</td>
-        <td>i.fname</td>
-        <td>i.lname</td>
-        <td>i.email</td>
-      </tr>
-    </table>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      Registration Form
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+            <div class="row">
+              <div class="form-group input-group-sm">
+                <label class="control-label" for="fname">First Name</label>
+                <input type="text" class="form-control" name="fname" id="fname" [(ngModel)]="user.fname">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group input-group-sm">
+                <label for="lname">Last Name</label>
+                <input type="text" class="form-control" name="lname" id="lname" [(ngModel)]="user.lname">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group input-group-sm">
+                <label for="email">Email ID</label>
+                <input type="text" class="form-control" name="email" id="email" [(ngModel)]="user.email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group input-group-sm">
+                <label for="pwd">Enter Password</label>
+                <input type="password" class="form-control" name="pwd" id="pwd" [(ngModel)]="user.pwd">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group input-group-sm">
+                <label for="cpwd">Confirm password</label>
+                <input type="password" class="form-control" name="cpwd" id="cpwd" [(ngModel)]="user.cpwd">
+              </div>
+            </div>
+            <div class="row">
+              <button style="float: right;" class="btn btn-default" type="submit">Submit</button>
+            </div>
+          </form>      
+      </div>
+    </div>
   </div>
 
+</div>
+
+<div style="float: left;" >
+
+    <div class="row">
+        <div class="table-responsive">
+          <div class="table">
+            <table>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email ID</th>
+              </tr>
+              <tr *ngFor="let i of jsonStr">
+                <td>{{i.id}}</td>
+                <td>{{i.fname}}</td>
+                <td>{{i.lname}}</td>
+                <td>{{i.email}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div>
+            {{userForm.value | json}}
+        </div>
+      </div>
 
 </div>
