@@ -21,9 +21,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.jsonStr = this.userService.getAllUsers();
-    // this.user = JSON.parse(JSON.stringify(this.jsonStr));
-    console.log('Json String from app.component.ts file : ' + this.jsonStr);
+    this.onRefresh();
+    //  this.user = JSON.parse(JSON.stringify(this.jsonStr));
   }
 
   // jsonData = JSON.parse( this.jsonStr );
@@ -31,7 +30,15 @@ export class AppComponent implements OnInit {
     alert(this.user.fname + this.user.lname + this.user.email);
   }
   onSubmit(f: NgForm) {
-    console.log(JSON.stringify(this.user));
-    console.log(f.value);
+    this.userService.postUser(JSON.stringify(f.value));
+    this.onRefresh();
+  }
+
+  onRefresh() {
+    // this.user = JSON.parse(JSON.stringify(this.jsonStr));
+    console.log(this.userService.getAllUsers().subscribe(data => {
+      this.jsonStr = data;
+    }));
+    console.log('Json String from app.component.ts file : ' + this.jsonStr);
   }
 }
