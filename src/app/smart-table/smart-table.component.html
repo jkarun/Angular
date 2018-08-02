@@ -1,0 +1,9 @@
+<div class="row">
+  <ng2-smart-table 
+    [settings]="userListTable" 
+    [source]="jsonStr" 
+    (deleteConfirm)="onDeleteConfirm($event)" 
+    (editConfirm)="onSaveConfirm($event)"
+    (createConfirm)="onCreateConfirm($event)">
+  </ng2-smart-table>
+</div>

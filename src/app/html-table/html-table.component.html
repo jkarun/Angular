@@ -1,0 +1,87 @@
+<div style="float: right;">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      Registration Form
+    </div>
+    <div class="panel-body">
+      <div class="row">
+
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+          <div class="row">
+            <div class="form-group input-group-sm">
+              <input type="hidden" class="form-control" name="id" id="id" [(ngModel)]="user.id">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group input-group-sm">
+              <label class="control-label" for="fname">First Name</label>
+              <input type="text" class="form-control" name="fname" id="fname" [(ngModel)]="user.fname">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group input-group-sm">
+              <label for="lname">Last Name</label>
+              <input type="text" class="form-control" name="lname" id="lname" [(ngModel)]="user.lname">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group input-group-sm">
+              <label for="email">Email ID</label>
+              <input type="text" class="form-control" name="email" id="email" [(ngModel)]="user.email">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group input-group-sm">
+              <label for="pwd">Enter Password</label>
+              <input type="password" class="form-control" name="pwd" id="pwd" [(ngModel)]="user.pwd">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group input-group-sm">
+              <label for="cpwd">Confirm password</label>
+              <input type="password" class="form-control" name="cpwd" id="cpwd" [(ngModel)]="user.cpwd">
+            </div>
+          </div>
+          <div class="row">
+            <button style="float: right;" class="btn btn-default" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="float: left;">
+  <div class="row">
+    <div class="table-responsive">
+      <div class="table">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email ID</th>
+          </tr>
+          <tr *ngFor="let i of jsonStr">
+            <td>
+              <a href=""> {{i.id}}</a>
+            </td>
+            <td>{{i.fname}}</td>
+            <td>{{i.lname}}</td>
+            <td>{{i.email}}</td>
+            <td>
+              <button value={{i.id}} class="form-control" (click)='getUserById(i.id)'>Edit</button>
+            </td>
+            <td>
+              <button value={{i.id}} class="form-control" (click)='deleteUserById(i.id)'>Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div> -->
+  </div>
+  <div>
+    {{userForm.value | json}}
+  </div>
+</div>
